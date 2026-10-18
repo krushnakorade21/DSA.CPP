@@ -1,3 +1,0 @@
-Problem Statement:
-
-Develop a contact management system using a doubly linked list, an array and a stack. Contact details (ID, name, phone, slot number) are stored in the list, contact slots in the array, and deleted contacts in the stack so the last delete can be undone. It supports add, delete, search, and forward and backward display.

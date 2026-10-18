@@ -1,0 +1,9 @@
+Problem Statement
+
+Write a C++ program to construct a General Tree in which each node can have any number of children. Each node stores its data, a pointer to its first child and a pointer to its next sibling. After constructing the tree, traverse it and count the Leaf Nodes (nodes with no children) and the Non-Leaf Nodes (nodes with at least one child). Display the actual values of the leaf and non-leaf nodes along with their counts and the total number of nodes. Count and display the number of nodes at each level of the tree. Allow the user to query a selected node and display its children.
+
+It is the earlier problem statement extended with the three suggested modifications:
+
+Showing the actual leaf and non-leaf values.
+Counting nodes at each level.
+Querying the children of a selected node.

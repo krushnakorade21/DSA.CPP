@@ -1,0 +1,33 @@
+Objective:
+
+The objective of this project is to develop a Contact Management System
+
+in C++ using structures, without classes.
+
+Contact details such as ID, name, phone, email and allotted slot number
+
+are stored in a circular doubly linked list,
+
+which allows easy insertion, deletion, searching
+
+and traversal in both forward and backward directions.
+
+Contact slots are managed using an array
+
+so a free slot can be allotted to each new contact.
+
+Deleted contacts are stored in a queue,
+
+which keeps the delete history
+
+and lets the oldest deleted contact be restored.
+
+The project applies circular linked list, array and queue concepts
+
+to solve a real-world contact management problem efficiently.
+
+It follows your Hospital objective line by line and matches your latest code:
+
+Patient became contact, bed became slot, and discharge became delete.
+“Re-admitted” became “restored”.
+The details list is ID, name, phone, email and slot number, since your code stores email instead of age and disease.

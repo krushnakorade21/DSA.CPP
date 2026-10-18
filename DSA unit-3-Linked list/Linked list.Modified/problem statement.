@@ -1,0 +1,23 @@
+Problem Statement:
+
+Develop a contact management system in C++
+
+using a circular doubly linked list, an array and a queue.
+
+Contact details (ID, name, phone, email, slot number) are stored in the circular list.
+
+Slots are managed using an array.
+
+Deleted contacts are held in a queue,
+
+and the oldest can be restored.
+
+The system supports adding, deleting, searching,
+
+forward and backward display, slot status and history.
+
+It follows your Hospital problem statement line by line and matches your latest code (circular doubly linked list, array and queue):
+
+Patient became contact, bed became slot, and discharge became delete.
+“Re-admitted” became “restored”.
+The details list is ID, name, phone, email and slot number, since your code stores email instead of age and disease.

@@ -1,0 +1,76 @@
+Algorithm: Leaf and Non-Leaf Node Counting in a General Tree
+Main
+
+Step 1: Start.
+
+Step 2: Define a node structure containing data, a pointer to the first child, and a pointer to the next sibling.
+
+Step 3: Initialize root = NULL, totalNodes = 0, leafCount = 0 and nonLeafCount = 0.
+
+Step 4: Display the menu: create root, add child, display tree, display leaf and non-leaf nodes, count nodes at each level, query children, load sample tree, exit.
+
+Step 5: Read the choice and call the matching function.
+
+Step 6: Repeat Steps 4 and 5 until choice = 8.
+
+Create Root
+
+Step 7: If the root is not NULL, display “Root already exists” and stop. Otherwise read the root value, create the root node and set totalNodes = 1.
+
+Add Child
+
+Step 8: If the root is NULL, display “Create the root first” and stop.
+
+Step 9: Read the parent value and the child value. Search the tree for the parent. If it is not found, display a message and stop.
+
+Step 10: If the child value already exists or the tree is full, display a message and stop.
+
+Step 11: Create a new node.
+
+If the parent has no child, set the parent’s firstChild to the new node.
+Otherwise move to the last sibling and set its nextSibling to the new node.
+Increase totalNodes.
+Display Tree
+
+Step 12: Print each node using preorder traversal (node first, then its children from left to right), with spaces according to its level. Mark a node with no child as “(leaf)”.
+
+Display Leaf and Non-Leaf Nodes
+
+Step 13: Set leafCount = 0 and nonLeafCount = 0, and start at the root.
+
+Step 14: Visit the node:
+
+If firstChild = NULL, it is a leaf node: increase leafCount and store its value in the leaf list.
+Otherwise, it is a non-leaf node: increase nonLeafCount and store its value in the non-leaf list.
+
+Step 15: Repeat Step 14 for every child of the node (first child, then its siblings) until all nodes are visited.
+
+Step 16: Display the leaf values with leafCount, the non-leaf values with nonLeafCount, and the total nodes (leafCount + nonLeafCount).
+
+Count Nodes at Each Level
+
+Step 17: Insert the root into a queue and set level = 0.
+
+Step 18: While the queue is not empty:
+
+Set size to the number of nodes in the queue and display “Level level : size node(s)”.
+Remove these size nodes one by one, display each value, and insert all its children (first child, then its siblings) into the queue.
+Increase level.
+
+Step 19: Display the height of the tree (the number of levels).
+
+Query Children of a Node
+
+Step 20: Read the node value and search the tree. If it is not found, display “Node not found” and stop.
+
+Step 21: If firstChild = NULL, display “Leaf node, no children” and stop.
+
+Step 22: Otherwise move from firstChild through each nextSibling, count the children, and display the number of children and their values.
+
+Load Sample Tree and Exit
+
+Step 23: Load sample: if the root exists, display a message and stop. Otherwise create the root 1 and add the sample children using Add Child.
+
+Step 24: Exit: free all nodes of the tree. Stop.
+
+This follows the menu in Leaf_NonLeaf_Node_Counting.cpp, with each menu option as its own section. I can turn it into a PDF in the same style as your BST algorithm page if you want.

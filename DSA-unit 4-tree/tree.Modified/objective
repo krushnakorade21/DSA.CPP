@@ -1,0 +1,2 @@
+Objective:
+The objective of this project is to implement a binary search tree in C++ and count the leaf and non-leaf nodes using traversal, without modifying the tree structure. It also displays the actual leaf and non-leaf node values, counts the nodes at each level, and lets the user query the children of any selected node, while verifying all results against the inorder traversal sequence, and strengthening understanding of BST insertion, searching and traversal.

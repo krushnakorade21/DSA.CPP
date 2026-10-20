@@ -1,0 +1,7 @@
+Objective:
+The objective of this project is to implement a binary tree in C++ and efficiently count the leaf nodes and non-leaf nodes present in it.
+It aims to demonstrate how each node is checked for the presence of left and right children
+to enable accurate counting using traversal.
+The project also strengthens understanding of tree creation, insertion,
+traversal, and recursion, while handling edge cases
+where the tree is empty or contains only a single node.

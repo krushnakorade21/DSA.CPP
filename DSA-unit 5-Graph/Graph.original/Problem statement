@@ -1,0 +1,17 @@
+Problem Statement:
+
+Develop a water depot network system
+
+using a graph (adjacency list) and a min-priority queue.
+
+Water depot, road junctions and repair locations are stored as vertices,
+
+roads between them are stored as edges with non-negative distances (km),
+
+and Dijkstra's algorithm finds the least-cost route from the water depot to a selected repair location.
+
+It supports add location, add road, display,
+
+shortest route with total distance,
+
+and changing the source vertex to recalculate the shortest distances.

@@ -1,0 +1,45 @@
+Algorithm: Shortest Route from Water Depot to a Repair Location using Dijkstra's Algorithm
+
+Input  : Water supply road network (water depot, road junctions and repair
+         locations = vertices, roads = weighted edges), source vertex,
+         repair location
+Output : Shortest distance and location sequence
+
+Step 1 : START.
+
+Step 2 : Build the graph using an adjacency list (location = vertex,
+         road = edge with distance in km as weight).
+         Each vertex is marked as Water Depot, Road Junction or Repair Location.
+
+Step 3 : Read the source (the Water Depot, or any other vertex chosen by the
+         user) and the repair location.
+         If either is invalid, or the destination is not a repair location,
+         display an error and STOP.
+
+Step 4 : Initialize dist[] = INFINITY, parent[] = -1, visited[] = false.
+
+Step 5 : Set dist[source] = 0 and push (0, source) into a min-priority queue.
+
+Step 6 : WHILE the queue is not empty, repeat Steps 7 to 9.
+
+Step 7 : Remove location u with the smallest distance.
+         If u is already visited, skip it.
+
+Step 8 : Mark u as visited.
+
+Step 9 : For each neighbour v of u with weight w:
+            if dist[u] + w < dist[v], then
+                update dist[v] and parent[v] = u,
+                push (dist[v], v) into the queue.
+
+Step 10: If dist[repair location] = INFINITY, display "No route exists" and STOP.
+
+Step 11: Trace parent[] from the repair location back to the source and
+         reverse it to get the route.
+
+Step 12: Display the shortest distance and the route.
+
+Step 13: To select a different source vertex (Modification A), read the new
+         source, repeat Steps 4 to 12 and display the recalculated shortest
+         distances to all locations.
+         STOP.

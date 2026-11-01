@@ -1,0 +1,26 @@
+OBJECTIVES:
+
+1. To develop a menu-driven Water Depot Network System for finding the
+shortest route to repair locations efficiently.
+2. To store location details such as location name, location type (water
+depot, road junction or repair location) and connected roads in a graph
+using an adjacency list.
+3. To perform essential operations such as adding new locations, adding
+roads between locations, searching for locations and displaying the
+network.
+4. To apply Dijkstra's algorithm to find the least-cost route from a
+selected source to a selected repair location and display the route and
+total distance.
+5. To use a min-priority queue for always selecting the nearest unvisited
+location and helping reduce unnecessary calculations.
+6. To use a parent array to display the complete shortest path to a
+repair location, and to every other location, and not only its distance
+(Modification B).
+7. To select a different source vertex and recalculate the shortest
+distances to all locations (Modification A).
+8. To update the distance of an existing road and recalculate the
+shortest paths automatically (Modification C).
+9. To apply non-negative distances (in km) as edge weights so that
+Dijkstra's algorithm gives correct shortest paths.
+10. To improve accuracy, accessibility, and organization of repair route
+planning while reducing manual route-finding effort.

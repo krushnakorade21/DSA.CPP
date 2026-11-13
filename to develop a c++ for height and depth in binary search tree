@@ -1,0 +1,56 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct Node {
+    int value;
+    Node *left, *right;
+    Node(int v) : value(v), left(nullptr), right(nullptr) {}
+};
+
+Node* insert(Node* root, int value) {
+    if (!root) return new Node(value);
+    if (value < root->value)
+        root->left = insert(root->left, value);
+    else
+        root->right = insert(root->right, value);
+    return root;
+}
+
+int height(Node* root) {
+    if (!root) return -1; // Height measured in edges
+    return 1 + max(height(root->left), height(root->right));
+}
+
+int main() {
+    Node* root = nullptr;
+    int n, value;
+
+    cout << "How many values? ";
+    cin >> n;
+
+    cout << "Enter values: ";
+    for (int i = 0; i < n; i++) {
+        cin >> value;
+        root = insert(root, value);
+    }
+
+    cout << "BST height: " << height(root) << " edges\n";
+
+    int target, depth = 0;
+    cout << "Find depth of value: ";
+    cin >> target;
+
+    Node* current = root;
+    while (current && current->value != target) {
+        current = (target < current->value) ? current->left : current->right;
+        depth++;
+    }
+
+    if (current)
+        cout << "Depth of " << target << ": " << depth << " edges\n";
+    else
+        cout << target << " is not in the BST.\n";
+
+    return 0;
+}

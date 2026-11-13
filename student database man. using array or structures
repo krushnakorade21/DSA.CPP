@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Student {
+    int rollNo;
+    string name;
+    float marks;
+};
+
+int main() {
+    Student students[100];
+    int count;
+
+    cout << "How many students? ";
+    cin >> count;
+
+    for (int i = 0; i < count; i++) {
+        cout << "\nStudent " << i + 1 << "\n";
+        cout << "Roll number: ";
+        cin >> students[i].rollNo;
+        cout << "Name: ";
+        cin >> students[i].name;
+        cout << "Marks: ";
+        cin >> students[i].marks;
+    }
+
+    cout << "\n--- Student Records ---\n";
+    for (int i = 0; i < count; i++) {
+        cout << students[i].rollNo << "  "
+             << students[i].name << "  "
+             << students[i].marks << "\n";
+    }
+
+    return 0;
+}

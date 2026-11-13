@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+void bubbleSort(float prices[], int n) {
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (prices[j] > prices[j + 1])
+                swap(prices[j], prices[j + 1]);
+}
+
+void selectionSort(float prices[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int smallest = i;
+        for (int j = i + 1; j < n; j++)
+            if (prices[j] < prices[smallest])
+                smallest = j;
+        swap(prices[i], prices[smallest]);
+    }
+}
+
+int main() {
+    float prices[100], bubble[100], selection[100];
+    int n, choice;
+
+    cout << "Number of products: ";
+    cin >> n;
+
+    cout << "Enter product prices:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> prices[i];
+        bubble[i] = selection[i] = prices[i];
+    }
+
+    cout << "1. Bubble Sort\n2. Selection Sort\nChoose algorithm: ";
+    cin >> choice;
+
+    if (choice == 1)
+        bubbleSort(bubble, n);
+    else if (choice == 2)
+        selectionSort(selection, n);
+    else {
+        cout << "Invalid choice.\n";
+        return 0;
+    }
+
+    cout << "Sorted prices: ";
+    float* sorted = (choice == 1) ? bubble : selection;
+    for (int i = 0; i < n; i++)
+        cout << sorted[i] << " ";
+
+    cout << "\n";
+    return 0;
+}

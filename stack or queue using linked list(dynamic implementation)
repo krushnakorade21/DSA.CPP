@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int parcelId;
+    Node* next;
+};
+
+int main() {
+    Node *front = nullptr, *rear = nullptr;
+    int choice, id;
+
+    do {
+        cout << "\n1. Add parcel\n2. Process parcel"
+             << "\n3. Show parcels\n0. Exit\nChoice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Enter parcel ID: ";
+            cin >> id;
+
+            Node* parcel = new Node{id, nullptr};
+            if (rear == nullptr)
+                front = rear = parcel;
+            else {
+                rear->next = parcel;
+                rear = parcel;
+            }
+            cout << "Parcel added.\n";
+        } else if (choice == 2) {
+            if (front == nullptr) {
+                cout << "No parcels to process.\n";
+            } else {
+                Node* parcel = front;
+                cout << "Processed parcel " << parcel->parcelId << ".\n";
+                front = front->next;
+                if (front == nullptr) rear = nullptr;
+                delete parcel;
+            }
+        } else if (choice == 3) {
+            if (front == nullptr) cout << "Queue is empty.\n";
+            else {
+                cout << "Waiting parcels: ";
+                for (Node* p = front; p != nullptr; p = p->next)
+                    cout << p->parcelId << " ";
+                cout << "\n";
+            }
+        }
+    } while (choice != 0);
+
+    while (front != nullptr) {
+        Node* next = front->next;
+        delete front;
+        front = next;
+    }
+    return 0;
+}

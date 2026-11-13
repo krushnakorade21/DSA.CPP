@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Parcel {
+    int id;
+    string receiver;
+};
+
+int main() {
+    Parcel queue[5];
+    int front = 0, rear = -1, choice;
+
+    do {
+        cout << "\n1. Add parcel\n2. Process parcel\n3. Show parcels\n0. Exit\nChoice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            if (rear == 4) {
+                cout << "Queue is full.\n";
+            } else {
+                rear++;
+                cout << "Enter parcel ID and receiver name: ";
+                cin >> queue[rear].id >> queue[rear].receiver;
+                cout << "Parcel added.\n";
+            }
+        } else if (choice == 2) {
+            if (front > rear) {
+                cout << "No parcels to process.\n";
+            } else {
+                cout << "Processed parcel " << queue[front].id
+                     << " for " << queue[front].receiver << ".\n";
+                front++;
+            }
+        } else if (choice == 3) {
+            if (front > rear) {
+                cout << "Queue is empty.\n";
+            } else {
+                cout << "Waiting parcels:\n";
+                for (int i = front; i <= rear; i++)
+                    cout << queue[i].id << " - " << queue[i].receiver << "\n";
+            }
+        }
+    } while (choice != 0);
+
+    return 0;
+}

@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    char ch;
+    Node* next;
+};
+
+int main() {
+    Node* head = nullptr;
+    int choice, position;
+    char ch;
+
+    do {
+        cout << "\n1. Insert character\n2. Delete character"
+             << "\n3. Show text\n0. Exit\nChoice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Enter position and character: ";
+            cin >> position >> ch;
+
+            Node* node = new Node{ch, nullptr};
+
+            if (position <= 1 || head == nullptr) {
+                node->next = head;
+                head = node;
+            } else {
+                Node* current = head;
+                for (int i = 1; current->next && i < position - 1; i++)
+                    current = current->next;
+                node->next = current->next;
+                current->next = node;
+            }
+        } else if (choice == 2) {
+            cout << "Enter position to delete: ";
+            cin >> position;
+
+            if (head) {
+                Node* current = head;
+                if (position <= 1) {
+                    head = head->next;
+                    delete current;
+                } else {
+                    for (int i = 1; current->next && i < position - 1; i++)
+                        current = current->next;
+                    if (current->next) {
+                        Node* removed = current->next;
+                        current->next = removed->next;
+                        delete removed;
+                    }
+                }
+            }
+        } else if (choice == 3) {
+            cout << "Text: ";
+            for (Node* current = head; current; current = current->next)
+                cout << current->ch;
+            cout << "\n";
+        }
+    } while (choice != 0);
+
+    while (head) {
+        Node* next = head->next;
+        delete head;
+        head = next;
+    }
+
+    return 0;
+}

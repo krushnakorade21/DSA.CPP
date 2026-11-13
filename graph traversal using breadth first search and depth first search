@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+void dfs(int v, vector<vector<int>>& graph, vector<bool>& visited) {
+    visited[v] = true;
+    cout << v << " ";
+
+    for (int next : graph[v])
+        if (!visited[next])
+            dfs(next, graph, visited);
+}
+
+int main() {
+    int n, edges, a, b, start;
+
+    cout << "Enter number of vertices and edges: ";
+    cin >> n >> edges;
+
+    vector<vector<int>> graph(n);
+
+    cout << "Enter each edge (two vertex numbers):\n";
+    for (int i = 0; i < edges; i++) {
+        cin >> a >> b;
+        graph[a].push_back(b);
+        graph[b].push_back(a); // Remove this line for a directed graph
+    }
+
+    cout << "Starting vertex: ";
+    cin >> start;
+
+    vector<bool> visited(n, false);
+    queue<int> q;
+    q.push(start);
+    visited[start] = true;
+
+    cout << "BFS: ";
+    while (!q.empty()) {
+        int v = q.front();
+        q.pop();
+        cout << v << " ";
+
+        for (int next : graph[v])
+            if (!visited[next]) {
+                visited[next] = true;
+                q.push(next);
+            }
+    }
+
+    fill(visited.begin(), visited.end(), false);
+    cout << "\nDFS: ";
+    dfs(start, graph, visited);
+    cout << "\n";
+
+    return 0;
+}

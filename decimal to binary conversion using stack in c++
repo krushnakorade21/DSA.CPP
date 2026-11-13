@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number, stack[32], top = -1;
+
+    cout << "Enter a non-negative decimal number: ";
+    cin >> number;
+
+    if (number < 0) {
+        cout << "Please enter a non-negative number.\n";
+        return 0;
+    }
+
+    if (number == 0) {
+        cout << "Binary: 0\n";
+        return 0;
+    }
+
+    while (number > 0) {
+        stack[++top] = number % 2;
+        number /= 2;
+    }
+
+    cout << "Binary: ";
+    while (top >= 0)
+        cout << stack[top--];
+
+    cout << "\n";
+    return 0;
+}
